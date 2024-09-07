@@ -9,6 +9,9 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "allowJs": true,
     "target": "ES2022",
     "typeRoots": [
@@ -19,6 +22,7 @@
       "es2016",
       "es2015",
       "es2018",
+      "es2020",
       "dom"
     ],
     "useDefineForClassFields": false
@@ -35,5 +39,8 @@
     "preserveWhitespaces": true,
     "skipMetadataEmit": false,
     "disableTypeScriptVersionCheck": true
+  },
+  "paths": {
+    "@styles/*": ["src/styles/*"],
   }
 }

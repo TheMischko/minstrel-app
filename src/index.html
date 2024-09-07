@@ -1,14 +1,27 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Angular Electron</title>
-  <base href="/">
+  <head>
+    <meta charset="utf-8" />
+    <title>Angular Electron</title>
+    <base href="/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
-</head>
-<body>
-  <app-root>Loading...</app-root>
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+  </head>
+  <body>
+    <app-root>Loading...</app-root>
+
+    <svg style="display: none">
+      <filter id="wavy2">
+        <feTurbulence
+          x="0"
+          y="0"
+          baseFrequency="0.02"
+          numOctaves="5"
+          seed="1"
+        />
+        <feDisplacementMap in="SourceGraphic" scale="20" in2="0" />
+      </filter>
+    </svg>
+  </body>
 </html>

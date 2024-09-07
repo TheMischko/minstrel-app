@@ -1,0 +1,5 @@
+{
+  "watch": ["app"],
+  "ext": "ts,json",
+  "exec": "npm run electron:serve-tsc && electron . --serve"
+}

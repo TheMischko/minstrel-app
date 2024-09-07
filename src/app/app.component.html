@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<div class="app">
+  <div class="top">Top menu</div>
+  <div class="center">
+    <app-container class="sidebar">
+      <app-side-panel></app-side-panel>
+    </app-container>
+    <app-container class="main">
+      <app-button (click)="sendSetup()" color="primary">Setup</app-button>
+      <app-button (click)="sendPlay()" color="secondary">Play</app-button>
+      <app-button (click)="sendPause()" color="primary">Play rain</app-button>
+      <router-outlet></router-outlet>
+    </app-container>
+  </div>
+  <div class="bottom">Player</div>
+</div>

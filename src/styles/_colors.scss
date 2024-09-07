@@ -1,0 +1,44 @@
+$primary-palette: (
+  50: #fce9e9,
+  100: #f5bdbc,
+  200: #ee9190,
+  300: #e86564,
+  400: #e13937,
+  500: #c81f1e,
+  600: #a61918,
+  700: #9b1817,
+  800: #6f1111,
+  900: #430a0a,
+);
+$primary-main: map-get($primary-palette, 600);
+$primary-main-hovered: map-get($primary-palette, 700);
+$primary-main-active: map-get($primary-palette, 800);
+$primary-subtle: map-get($primary-palette, 100);
+$primary-subtle-hovered: map-get($primary-palette, 200);
+$primary-subtle-active: map-get($primary-palette, 300);
+
+$secondary-palette: (
+  50: #bad7fe,
+  100: #8cbdfe,
+  200: #5ea2fd,
+  300: #3187fd,
+  400: #036dfc,
+  500: #0259ce,
+  600: #0245a1,
+  700: #013173,
+  800: #01295f,
+  900: #011e45,
+);
+$secondary-main: map-get($secondary-palette, 600);
+$secondary-main-hovered: map-get($secondary-palette, 700);
+$secondary-main-active: map-get($secondary-palette, 800);
+$secondary-subtle: map-get($secondary-palette, 100);
+$secondary-subtle-hovered: map-get($secondary-palette, 200);
+$secondary-subtle-active: map-get($secondary-palette, 300);
+
+$background-light: #e7e3d1;
+$background-light-contrast: #e7e3d1;
+$black: #18120c;
+$red-main: #bb2424;
+$blue-main: #325cdc;
+$green-main: #5a9b35;

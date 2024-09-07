@@ -42,6 +42,14 @@
             "customWebpackConfig": {
               "path": "./angular.webpack.js",
               "replaceDuplicatePlugins": true
+            },
+            "allowedCommonJsDependencies": [
+              "electron"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
             }
           },
           "configurations": {
@@ -91,6 +99,9 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.web.ts"
                 }
+              ],
+              "allowedCommonJsDependencies": [
+                "electron"
               ]
             },
             "web-production": {
@@ -142,7 +153,7 @@
           "options": {
             "polyfills": ["src/polyfills-test.ts"],
             "tsConfig": "src/tsconfig.spec.json",
-            "globalMocks": ["styleTransform", "matchMedia", "getComputedStyle"],
+            "globalMocks": ["styleTransform", "matchMedia", "getComputedStyle"]
           }
         },
         "lint": {

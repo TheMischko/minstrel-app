@@ -1,0 +1,35 @@
+@import "colors";
+
+@font-face {
+  font-family: "Brioso Pro";
+  src: url("../assets/fonts/briosopro-regular.otf");
+}
+
+$default-font: "Brioso Pro", Georgia, serif;
+
+@mixin typo-main {
+  font-family: $default-font;
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 1.5;
+  line-break: auto;
+  text-align: left;
+  letter-spacing: 0;
+}
+
+@mixin typo-h1 {
+  @include typo-main();
+  font-size: 38px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  margin: 1rem 0;
+}
+
+@mixin typo-button {
+  @include typo-main();
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  margin: 1rem 0;
+}

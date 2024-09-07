@@ -2,20 +2,26 @@
   "compilerOptions": {
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "module": "commonjs",
-    "target": "es2015",
+    "module": "nodenext",
+    "target": "es2020",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "types": [
       "node"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
     ],
     "lib": [
       "es2017",
       "es2016",
       "es2015",
       "dom"
-    ]
+    ],
   },
   "files": [
     "app/main.ts"

@@ -9,6 +9,8 @@
 main.js
 src/**/*.js
 *.js.map
+/.nx
+.env
 
 # dependencies
 node_modules

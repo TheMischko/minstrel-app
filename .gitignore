@@ -6,11 +6,11 @@
 /out-tsc
 /app-builds
 /release
-main.js
-src/**/*.js
+/src/**/*.js
+/app/**/*.js
 *.js.map
 /.nx
-.env
+/.env
 
 # dependencies
 node_modules

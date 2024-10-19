@@ -8,6 +8,9 @@ import internal, { PassThrough, Writable } from 'node:stream';
 import ffmpegPath from 'ffmpeg-static';
 import { createAudioResource, StreamType } from '@discordjs/voice';
 import { SoundManager } from './sound-manager';
+import { DatabaseManager } from './managers/database-manager';
+import { PlaylistManager } from './managers/playlist-manager';
+import { PlaylistController } from './controllers/playlist-controller';
 
 let win: BrowserWindow | null = null;
 const args = process.argv.slice(1),
@@ -75,7 +78,20 @@ try {
   let botConnected: boolean = false;
   let playingToSpeaker: boolean = false;
 
-  app.on('ready', () => setTimeout(createWindow, 400));
+  app.on('ready', () => {
+    setTimeout(createWindow, 400);
+
+    const databaseManager = new DatabaseManager();
+
+    // Managers
+
+    const playlistManager = new PlaylistManager(databaseManager);
+
+    // Controllers
+
+    const playlistController = new PlaylistController(playlistManager);
+    playlistController.registerHandlers();
+  });
 
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

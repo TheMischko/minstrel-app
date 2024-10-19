@@ -1,7 +1,6 @@
 export interface ElectronRequest<T> {
   data: T;
   operation: ElectronOperation;
-  responseChannel?: string;
 }
 
 export enum ElectronOperation {

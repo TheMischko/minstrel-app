@@ -7,6 +7,7 @@ import { ipcRenderer } from 'electron';
 import { ButtonComponent } from './shared/controls/button/button.component';
 import { ContainerComponent } from './shared/container/container.component';
 import { SidePanelComponent } from './layout/side-panel/side-panel.component';
+import { ElectronOperation } from './models/electron-model';
 
 @Component({
   selector: 'app-root',
@@ -48,5 +49,11 @@ export class AppComponent {
 
   sendPause() {
     ipcRenderer.send('play-second');
+  }
+
+  getPlaylists() {
+    this.electronService.sendRequest("playlist/get-all", {data: null, operation: ElectronOperation.Get}).subscribe((res) => {
+      console.log(res);
+    })
   }
 }

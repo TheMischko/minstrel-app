@@ -59,19 +59,7 @@ export class ElectronService {
         return;
       }
 
-      const responseChannel = `${channel}-reply`;
-      data.responseChannel = responseChannel;
-      const listener = (event: Electron.IpcRendererEvent, response: any) => {
-        if (response.error) {
-          observer.error(response.error);
-        } else {
-          observer.next(response as U);
-          observer.complete();
-        }
-      };
-
-      this.ipcRenderer.once(responseChannel, listener);
-      this.ipcRenderer.send(channel, data);
+      this.ipcRenderer.invoke(channel, data).then((res) => console.log(res));
     });
   }
 }

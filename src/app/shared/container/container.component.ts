@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   imports: [],
   template: `
     <div class="container">
-      <div class="parchment" [class.border]="showBorder"></div>
+      <!--      <div class="parchment" [class.border]="showBorder"></div>-->
       <div class="content">
         <ng-content></ng-content>
       </div>

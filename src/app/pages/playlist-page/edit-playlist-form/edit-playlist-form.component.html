@@ -1,0 +1,18 @@
+<form class="edit-playlist-form" [formGroup]="data">
+  <app-input
+    formControlName="title"
+    label="Title"
+    placeholder="Set name of your playlist"
+    type="text"
+  ></app-input>
+  <app-input
+    formControlName="imageUrl"
+    label="Image URL"
+    placeholder="Pick an image for your playlist"
+    type="text"
+  ></app-input>
+  <div class="actions">
+    <app-button color="secondary" (click)="cancelForm()">Cancel</app-button>
+    <app-button color="primary" (click)="submitForm()">Create</app-button>
+  </div>
+</form>

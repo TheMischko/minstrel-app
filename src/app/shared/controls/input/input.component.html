@@ -1,0 +1,18 @@
+<div [ngClass]="classList">
+  @if(label()){
+  <label class="form-label">{{ label() }}</label>
+  } @if(type() === "textarea"){
+  <textarea
+    class="form-input"
+    [formControl]="inputControl"
+    [placeholder]="placeholder()"
+  ></textarea>
+  } @else {
+  <input
+    class="form-input"
+    type="text"
+    [formControl]="inputControl"
+    [placeholder]="placeholder()"
+  />
+  }
+</div>

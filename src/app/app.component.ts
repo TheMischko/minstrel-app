@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { APP_CONFIG } from '../environments/environment';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { ElectronService } from './services/electron.service';
 import { ipcRenderer } from 'electron';
 import { ButtonComponent } from './shared/controls/button/button.component';
@@ -25,6 +25,7 @@ export class AppComponent {
   constructor(
     private electronService: ElectronService,
     private translate: TranslateService,
+    private router: Router,
   ) {
     this.translate.setDefaultLang('en');
     console.log('APP_CONFIG', APP_CONFIG);
@@ -52,8 +53,7 @@ export class AppComponent {
   }
 
   getPlaylists() {
-    this.electronService.sendRequest("playlist/get-all", {data: null, operation: ElectronOperation.Get}).subscribe((res) => {
-      console.log(res);
-    })
+    this.router.navigate(['playlist']);
+    return;
   }
 }

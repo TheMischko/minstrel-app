@@ -1,4 +1,4 @@
-export interface PlaylistAllData {
+export interface Playlist {
   id: number;
   title: string;
   imageUrl?: string;
@@ -6,7 +6,7 @@ export interface PlaylistAllData {
   dateLastUpdated: Date;
 }
 
-export interface PlaylistCreateData {
+export interface CreatePlaylistData {
   title: string;
-  imageUrl: string | null | undefined;
+  imageUrl?: string;
 }

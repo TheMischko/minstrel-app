@@ -1,14 +1,14 @@
 {
   "root": true,
   "ignorePatterns": [
-    "app/**/*", // ignore nodeJs files
+    "app/**/*",
     "dist/**/*",
     "release/**/*"
   ],
   "overrides": [
     {
       "files": [
-        "*.ts"
+        "src/**/*.ts"
       ],
       "parserOptions": {
         "project": [
@@ -33,7 +33,7 @@
         "@typescript-eslint/no-unsafe-call": 0,
         "@typescript-eslint/no-unsafe-member-access": 0,
         "prefer-arrow/prefer-arrow-functions": 0,
-        "@angular-eslint/directive-selector":  0,
+        "@angular-eslint/directive-selector": 0,
         "@angular-eslint/component-selector": [
           "error",
           {
@@ -52,8 +52,15 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {
-      }
+      "rules": {}
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:@ngrx/strict-requiring-type-checking"
+      ]
     }
   ]
 }

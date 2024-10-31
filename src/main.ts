@@ -12,6 +12,7 @@ import {
 } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideStore } from '@ngrx/store';
 
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
   new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,18 +23,14 @@ if (APP_CONFIG.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(
-      BrowserModule,
-      FormsModule,
-      AppRoutingModule,
-      TranslateModule.forRoot({
+    importProvidersFrom(BrowserModule, FormsModule, AppRoutingModule, TranslateModule.forRoot({
         loader: {
-          provide: TranslateLoader,
-          useFactory: httpLoaderFactory,
-          deps: [HttpClient],
+            provide: TranslateLoader,
+            useFactory: httpLoaderFactory,
+            deps: [HttpClient],
         },
-      }),
-    ),
+    })),
     provideHttpClient(withInterceptorsFromDi()),
-  ],
+    provideStore()
+],
 }).catch((err) => console.error(err));

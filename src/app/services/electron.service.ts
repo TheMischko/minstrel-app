@@ -59,7 +59,7 @@ export class ElectronService {
         return;
       }
 
-      this.ipcRenderer.invoke(channel, data).then((res) => console.log(res));
+      this.ipcRenderer.invoke(channel, data).then((res) => observer.next(res));
     });
   }
 }

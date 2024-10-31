@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { PlaylistPageComponent } from './pages/playlist-page/playlist-page.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent,
+  },
+  {
+    path: 'playlist',
+    component: PlaylistPageComponent,
   },
   {
     path: '**',

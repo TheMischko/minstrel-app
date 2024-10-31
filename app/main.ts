@@ -11,6 +11,8 @@ import { SoundManager } from './sound-manager';
 import { DatabaseManager } from './managers/database-manager';
 import { PlaylistManager } from './managers/playlist-manager';
 import { PlaylistController } from './controllers/playlist-controller';
+import { MusicController } from './controllers/music-controller';
+import { MusicManager } from './managers/music-manager';
 
 let win: BrowserWindow | null = null;
 const args = process.argv.slice(1),
@@ -86,11 +88,13 @@ try {
     // Managers
 
     const playlistManager = new PlaylistManager(databaseManager);
-
+    const musicManager = new MusicManager(databaseManager);
     // Controllers
 
     const playlistController = new PlaylistController(playlistManager);
     playlistController.registerHandlers();
+    const musicController = new MusicController(musicManager);
+    musicController.registerHandlers();
   });
 
   app.on('window-all-closed', () => {

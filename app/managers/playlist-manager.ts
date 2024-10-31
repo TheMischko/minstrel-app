@@ -15,6 +15,6 @@ export class PlaylistManager {
   }
 
   async create(data: PlaylistCreateData): Promise<PlaylistAllData> {
-    return this.database.insert<PlaylistAllData>(this.table, data as any);
+    return this.database.insert<PlaylistAllData>(this.table, data);
   }
 }

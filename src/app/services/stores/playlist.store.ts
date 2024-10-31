@@ -10,7 +10,7 @@ import { PlaylistService } from '../playlist.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { finalize, map, pipe, switchMap, tap } from 'rxjs';
 import { setAllEntities, withEntities } from '@ngrx/signals/entities';
-import { PlaylistAllData } from '../../../../app/models/playlist-data-model';
+import { Playlist } from '../../models/playlist-model';
 
 type PlaylistStoreState = {
   loading: boolean;
@@ -23,7 +23,7 @@ const initialState: PlaylistStoreState = {
 export const PlaylistStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
-  withEntities<PlaylistAllData>(),
+  withEntities<Playlist>(),
   withMethods((store, playlistService = inject(PlaylistService)) => ({
     load: rxMethod<void>(
       pipe(

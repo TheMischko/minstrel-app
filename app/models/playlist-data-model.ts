@@ -1,7 +1,7 @@
 export interface PlaylistAllData {
   id: number;
   title: string;
-  imageUrl?: string;
+  imageUrl: string | null | undefined;
   dateCreated: Date;
   dateLastUpdated: Date;
 }

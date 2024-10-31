@@ -58,10 +58,7 @@ export class DatabaseManager {
    * @param table Name of the table.
    * @param data Data of the new record.
    */
-  insert<T>(
-    table: Tables,
-    data: knex.Knex.CompositeTableType<any>,
-  ): Promise<T> {
+  insert<T>(table: Tables, data: Partial<T>): Promise<T> {
     return new Promise<T>((resolve, reject) => {
       this.database(table)
         .insert(data, ['id'])
@@ -88,11 +85,7 @@ export class DatabaseManager {
    * @param id Identifier of record.
    * @param data Object containing record overrides.
    */
-  update<T>(
-    table: Tables,
-    id: number,
-    data: knex.Knex.CompositeTableType<any>,
-  ): Promise<number> {
+  update<T>(table: Tables, id: number, data: Partial<T>): Promise<number> {
     return new Promise<number>((resolve, reject) => {
       this.database(table)
         .where({ id: Number(id) })

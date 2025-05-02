@@ -1,0 +1,12 @@
+{
+	"include": ["src/**/*.d.ts", "../shared-lib/**/*"],
+	"compilerOptions": {
+		"strict": true,
+		"baseUrl": "./",
+		"outDir": "./.dist",
+		"target": "ES6",
+		"module": "NodeNext",
+		"skipLibCheck": true,
+	},
+	"files": ["src/sound-capture.ts"],
+}

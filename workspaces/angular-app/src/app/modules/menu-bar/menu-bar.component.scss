@@ -1,0 +1,16 @@
+$menu-bar-height: max(5wh, 32px);
+
+.menu-bar{
+  height: 5wh;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  background: dodgerblue;
+
+  button{
+    height: $menu-bar-height;
+    width: $menu-bar-height;
+    color: white;
+  }
+}

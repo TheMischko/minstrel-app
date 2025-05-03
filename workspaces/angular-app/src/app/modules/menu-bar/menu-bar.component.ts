@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-    selector: 'app-menu-bar',
-    imports: [CommonModule],
-    templateUrl: './menu-bar.component.html',
-    styleUrls: ['./menu-bar.component.scss']
+  selector: "app-menu-bar",
+  imports: [CommonModule],
+  templateUrl: "./menu-bar.component.html",
+  standalone: true,
+  styleUrls: ["./menu-bar.component.scss"],
 })
-export class MenuBarComponent {
-
-}
+export class MenuBarComponent {}

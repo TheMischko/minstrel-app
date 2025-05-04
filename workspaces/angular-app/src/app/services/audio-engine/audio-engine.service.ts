@@ -10,7 +10,7 @@ export class AudioEngineService {
   private injector = inject(Injector);
   private playbackTrackPlayerFactory = new HowlPlaybackTrackPlayerFactory();
   private baseOptions: AudioTrackOptions = {
-    volume: 1,
+    volume: 0.3,
     speed: 1,
   };
 
@@ -19,6 +19,7 @@ export class AudioEngineService {
       url,
       this.baseOptions,
       this.playbackTrackPlayerFactory,
+      this.injector,
     );
   }
 

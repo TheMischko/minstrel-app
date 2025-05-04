@@ -1,6 +1,12 @@
 import { Sound } from "shared-lib/models/playback/sound.model";
-import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
-import { inject, Injector } from "@angular/core";
+import {
+  patchState,
+  signalStore,
+  withComputed,
+  withMethods,
+  withState,
+} from "@ngrx/signals";
+import { computed, inject, Injector } from "@angular/core";
 import { AudioEngineService } from "../services/audio-engine/audio-engine.service";
 import { PlaybackTrack } from "../services/audio-engine/playback-track";
 import { shuffleArray } from "shared-lib/utils/shuffle-array";
@@ -19,6 +25,20 @@ const initialState: PlaybackState = {
 export const PlaybackStore = signalStore(
   { providedIn: "root" },
   withState(initialState),
+  withComputed((store) => {
+    const mainTrack = computed(() => {
+      const queue = store.mainQueue();
+      const activeIndex = store.mainTrackIndex();
+      if (activeIndex === null || queue.length === 0) {
+        return null;
+      }
+      return queue[activeIndex];
+    });
+
+    return {
+      mainTrack,
+    };
+  }),
   withMethods(
     (
       store,

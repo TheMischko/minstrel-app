@@ -23,9 +23,10 @@ export class HowlPlaybackTrackPlayer implements PlaybackTrackPlayer {
   volume = signal<number>(1);
   trackLength = computed(() => {
     if (this.loaded()) {
+      console.log(`Duration: ${this.howl.duration()}`);
       return this.howl.duration();
     }
-    return null;
+    return undefined;
   });
 
   private howl: Howl;
@@ -102,6 +103,7 @@ export class HowlPlaybackTrackPlayer implements PlaybackTrackPlayer {
 
   private setupPlaybackPositionScreening() {
     if (!this.injector) {
+      console.error("No Injector for track.");
       return;
     }
     runInInjectionContext(this.injector, () => {

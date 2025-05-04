@@ -1,0 +1,13 @@
+<app-player-bar
+  [track]="track()"
+  [trackLoading]="trackLoading()"
+  [trackPlaying]="trackPlaying() || false"
+  [trackPosition]="trackPosition() || 0"
+  [trackPositionFormatted]="trackPositionFormatted()"
+  [trackLength]="trackLength() || 0"
+  [trackLengthFormatted]="trackLengthFormatted()"
+  [trackError]="trackError() || null"
+  (startPlaying)="play()"
+  (pausePlaying)="pause()"
+  (seek)="seek($event)"
+/>

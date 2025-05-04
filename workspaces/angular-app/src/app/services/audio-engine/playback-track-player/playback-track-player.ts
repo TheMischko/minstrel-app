@@ -11,7 +11,7 @@ export interface PlaybackTrackPlayer {
   playError: Signal<string | null>;
   playbackPosition: Signal<number>;
   ended: Signal<boolean>;
-  trackLength: Signal<number | null>;
+  trackLength: Signal<number | undefined>;
   volume: Signal<number>;
 
   url: string;

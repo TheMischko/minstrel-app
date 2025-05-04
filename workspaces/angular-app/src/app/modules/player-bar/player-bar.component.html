@@ -1,0 +1,38 @@
+<div class="player-bar">
+  <div class="left-side">
+    {{ track()?.url }}
+  </div>
+
+  <div class="central-side">
+    <div class="sound-effects"></div>
+    <app-player-bar-main-controls
+      class="controls"
+      [trackPlaying]="trackPlaying()"
+      (trackPlay)="startPlaying.emit()"
+      (trackPause)="pausePlaying.emit()"
+      (next)="next.emit()"
+      (prev)="next.emit()"
+    ></app-player-bar-main-controls>
+
+    <div class="trackProgress">
+      <div class="position">
+        {{ trackPositionFormatted() }}
+      </div>
+      <div class="track-input-wrapper">
+        <input
+          #trackPositionInput
+          id="trackPositionInput"
+          type="range"
+          [min]="0"
+          [max]="trackLength()"
+          (mouseup)="positionChanged($event)"
+        />
+      </div>
+      <div class="duration">
+        {{ trackLengthFormatted() }}
+      </div>
+    </div>
+  </div>
+
+  <div class="right-side"></div>
+</div>

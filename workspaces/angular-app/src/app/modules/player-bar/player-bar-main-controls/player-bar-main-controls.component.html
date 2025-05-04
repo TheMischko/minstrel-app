@@ -1,0 +1,15 @@
+<button class="button" (click)="prev.emit()">
+  <lucide-icon [img]="SkipBackwardIcon" class="bar-icon"></lucide-icon>
+</button>
+@if (trackPlaying()) {
+  <button class="button" (click)="trackPause.emit()">
+    <lucide-icon [img]="PauseIcon" class="bar-icon"></lucide-icon>
+  </button>
+} @else {
+  <button class="button" (click)="trackPlay.emit()">
+    <lucide-icon [img]="PlayIcon" class="bar-icon"></lucide-icon>
+  </button>
+}
+<button class="button" (click)="next.emit()">
+  <lucide-icon [img]="SkipForwardIcon" class="bar-icon"></lucide-icon>
+</button>

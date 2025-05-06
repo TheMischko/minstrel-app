@@ -1,0 +1,18 @@
+<div class="position progress-bar-text">
+  {{ trackPositionFormatted() }}
+</div>
+
+<div class="progress-bar-wrapper">
+  <input
+    #trackPositionInput
+    class="progress-bar"
+    type="range"
+    [min]="0"
+    [max]="trackLength()"
+    (mouseup)="positionChanged($event)"
+  />
+</div>
+
+<div class="duration progress-bar-text">
+  {{ trackLengthFormatted() }}
+</div>

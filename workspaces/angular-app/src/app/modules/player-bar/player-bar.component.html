@@ -14,23 +14,14 @@
       (prev)="next.emit()"
     ></app-player-bar-main-controls>
 
-    <div class="trackProgress">
-      <div class="position">
-        {{ trackPositionFormatted() }}
-      </div>
-      <div class="track-input-wrapper">
-        <input
-          #trackPositionInput
-          id="trackPositionInput"
-          type="range"
-          [min]="0"
-          [max]="trackLength()"
-          (mouseup)="positionChanged($event)"
-        />
-      </div>
-      <div class="duration">
-        {{ trackLengthFormatted() }}
-      </div>
+    <div class="progress">
+      <app-player-progress-bar
+        [trackLength]="trackLength()"
+        [trackLengthFormatted]="trackLengthFormatted()"
+        [trackPosition]="trackPosition()"
+        [trackPositionFormatted]="trackPositionFormatted()"
+        (seek)="onSeek($event)"
+      ></app-player-progress-bar>
     </div>
   </div>
 

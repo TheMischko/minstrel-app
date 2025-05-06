@@ -1,18 +1,29 @@
-.app{
+.app {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
-.window{
+.window {
   display: grid;
   grid-template-columns: min(25vw, 250px) 1fr;
   flex: 1;
-  .side-bar{
+  .side-bar {
     flex: 1 0 0;
     overflow-y: auto;
   }
-  .content{
+  .content {
     flex: 1 1 0;
     overflow-y: auto;
   }
+  .side-bar,
+  .content {
+    padding-bottom: 20vh;
+  }
+}
+
+.player-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }

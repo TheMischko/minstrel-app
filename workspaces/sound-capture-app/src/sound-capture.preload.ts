@@ -1,13 +1,7 @@
-import { ipcRenderer } from 'electron';
-import { SoundCaptureChannels } from '../../shared-lib/models/messaging/sound-capture.channels';
+import { contextBridge, ipcRenderer } from "electron";
 
-export const api = {
-	sendMessage(message: string): void {
-		ipcRenderer.send(SoundCaptureChannels.INIT_MSG, message);
-	},
-	readMessage(callback: (message: string) => void): void {
-		ipcRenderer.on(SoundCaptureChannels.INCOMING_MSG, (_, args) => {
-			callback(args);
-		});
-	},
-};
+contextBridge.exposeInMainWorld("SoundCaptureAPI", {
+  send: (channel: string, data?: unknown) => ipcRenderer.send(channel, data),
+  invoke: (channel: string, data?: unknown) =>
+    ipcRenderer.invoke(channel, data),
+});

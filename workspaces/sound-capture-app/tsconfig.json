@@ -8,5 +8,8 @@
 		"module": "NodeNext",
 		"skipLibCheck": true,
 	},
-	"files": ["src/sound-capture.ts"],
+	"files": [
+		"src/sound-capture.ts",
+		"src/sound-capture.preload.ts"
+	],
 }

@@ -4,8 +4,8 @@
 		"mainLogFile": "dist/dev-main.log",
 		"mainLogLevel": "debug",
 		"isIconAvailable": true,
-		"isNodeIntegration": true,
-		"isContextIsolation": false,
+		"isNodeIntegration": false,
+		"isContextIsolation": true,
 		"isEnableRemoteModule": false,
 		"isSandbox": false,
 		"isOpenDevTools": true
@@ -22,8 +22,8 @@
 		"mainLogFile": "main.log",
 		"mainLogLevel": "error",
 		"isIconAvailable": false,
-		"isNodeIntegration": true,
-		"isContextIsolation": false,
+		"isNodeIntegration": false,
+		"isContextIsolation": true,
 		"isSandbox": false,
 		"isOpenDevTools": true
 	}

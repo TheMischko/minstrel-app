@@ -1,7 +1,8 @@
-import { Component, computed, inject } from "@angular/core";
+import { Component, computed, inject, signal } from "@angular/core";
 import { PlaybackStore } from "../../../store/playback.store";
 import { PlaybackTrack } from "../../../services/audio-engine/playback-track";
 import { PlayerBarComponent } from "../player-bar.component";
+import { PlaybackLoopState } from "../../../models/playback-track.model";
 
 @Component({
   selector: "app-player-bar-smart",
@@ -24,6 +25,9 @@ export class PlayerBarSmartComponent {
   );
   trackError = computed(() => this.track()?.error());
 
+  shuffle = signal<boolean>(true);
+  looping = signal<PlaybackLoopState>(PlaybackLoopState.NONE);
+
   play(): void {
     this.track()?.play();
   }
@@ -34,6 +38,14 @@ export class PlayerBarSmartComponent {
 
   seek(newPos: number) {
     this.track()?.seek(newPos);
+  }
+
+  changeShuffle(shuffle: boolean): void {
+    this.shuffle.set(shuffle);
+  }
+
+  changeLooping(looping: PlaybackLoopState): void {
+    this.looping.set(looping);
   }
 
   private formatTimeString(time: number | undefined | null): string {

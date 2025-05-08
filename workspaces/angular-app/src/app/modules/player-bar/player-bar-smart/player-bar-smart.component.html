@@ -7,7 +7,11 @@
   [trackLength]="trackLength() || 0"
   [trackLengthFormatted]="trackLengthFormatted()"
   [trackError]="trackError() || null"
+  [looping]="looping()"
+  [shuffle]="shuffle()"
   (startPlaying)="play()"
   (pausePlaying)="pause()"
   (seek)="seek($event)"
+  (shuffleChange)="changeShuffle($event)"
+  (loopingChange)="changeLooping($event)"
 />

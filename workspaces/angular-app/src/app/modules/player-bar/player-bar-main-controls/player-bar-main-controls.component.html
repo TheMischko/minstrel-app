@@ -1,6 +1,13 @@
+<button class="button" (click)="changeShuffle()">
+    <lucide-icon [img]="ShuffleIcon" class="bar-icon" [class.active]="shuffle()"></lucide-icon>
+</button>
+
+
 <button class="button" (click)="prev.emit()">
   <lucide-icon [img]="SkipBackwardIcon" class="bar-icon"></lucide-icon>
 </button>
+
+
 @if (trackPlaying()) {
   <button class="button" (click)="trackPause.emit()">
     <lucide-icon [img]="PauseIcon" class="bar-icon"></lucide-icon>
@@ -10,6 +17,23 @@
     <lucide-icon [img]="PlayIcon" class="bar-icon"></lucide-icon>
   </button>
 }
+
+
 <button class="button" (click)="next.emit()">
   <lucide-icon [img]="SkipForwardIcon" class="bar-icon"></lucide-icon>
+</button>
+
+
+<button class="button" (click)="changeLooping()">
+    @switch (looping()){
+        @default {
+            <lucide-icon [img]="RepeatIcon" class="bar-icon"></lucide-icon>
+        }
+        @case (PlaybackLoopState.PLAYLIST){
+            <lucide-icon [img]="RepeatIcon" class="bar-icon active"></lucide-icon>
+        }
+        @case (PlaybackLoopState.CURRENT){
+            <lucide-icon [img]="RepeatOneIcon" class="bar-icon active"></lucide-icon>
+        }
+    }
 </button>

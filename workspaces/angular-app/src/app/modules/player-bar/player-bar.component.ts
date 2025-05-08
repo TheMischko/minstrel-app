@@ -1,6 +1,9 @@
 import { Component, input, output } from "@angular/core";
 import { PlaybackTrack } from "../../services/audio-engine/playback-track";
-import { PlaybackTrackError } from "../../models/playback-track.model";
+import {
+  PlaybackLoopState,
+  PlaybackTrackError,
+} from "../../models/playback-track.model";
 import { PlayerBarMainControlsComponent } from "./player-bar-main-controls/player-bar-main-controls.component";
 import { PlayerProgressBarComponent } from "./player-progress-bar/player-progress-bar.component";
 
@@ -20,6 +23,8 @@ export class PlayerBarComponent {
   trackLength = input<number>(0);
   trackLengthFormatted = input.required<string>();
   trackError = input.required<PlaybackTrackError | null>();
+  shuffle = input.required<boolean>();
+  looping = input.required<PlaybackLoopState>();
 
   startPlaying = output<void>();
   pausePlaying = output<void>();
@@ -28,6 +33,8 @@ export class PlayerBarComponent {
   prev = output<void>();
   seek = output<number>();
   volume = output<number>();
+  loopingChange = output<PlaybackLoopState>();
+  shuffleChange = output<boolean>();
 
   onSeekInput(position: number) {
     this.seek.emit(position);

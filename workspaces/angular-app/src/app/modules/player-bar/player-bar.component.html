@@ -8,21 +8,24 @@
     <app-player-bar-main-controls
       class="controls"
       [trackPlaying]="trackPlaying()"
+      [looping]="looping()"
+      [shuffle]="shuffle()"
       (trackPlay)="startPlaying.emit()"
       (trackPause)="pausePlaying.emit()"
       (next)="next.emit()"
       (prev)="next.emit()"
+      (loopingChange)="loopingChange.emit($event)"
+      (shuffleChange)="shuffleChange.emit($event)"
     ></app-player-bar-main-controls>
 
-    <div class="progress">
-      <app-player-progress-bar
-        [trackLength]="trackLength()"
-        [trackLengthFormatted]="trackLengthFormatted()"
-        [trackPosition]="trackPosition()"
-        [trackPositionFormatted]="trackPositionFormatted()"
-        (seek)="onSeek($event)"
-      ></app-player-progress-bar>
-    </div>
+    <app-player-progress-bar
+      class="progress"
+      [trackLength]="trackLength()"
+      [trackLengthFormatted]="trackLengthFormatted()"
+      [trackPosition]="trackPosition()"
+      [trackPositionFormatted]="trackPositionFormatted()"
+      (seek)="onSeek($event)"
+    ></app-player-progress-bar>
   </div>
 
   <div class="right-side"></div>

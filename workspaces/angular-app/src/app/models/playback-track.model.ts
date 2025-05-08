@@ -7,3 +7,9 @@ export interface PlaybackTrackError {
   type: PlaybackTrackErrorType;
   message: string;
 }
+
+export enum PlaybackLoopState {
+  NONE,
+  CURRENT,
+  PLAYLIST
+}
